@@ -1,0 +1,82 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{xeCJK}
+\input{/Users/yenchin/Documents/Seminar/P}
+\setCJKmainfont{Songti SC}
+\renewcommand{\baselinestretch}{1.5}
+\usepackage{authblk}
+\usepackage{geometry}
+\geometry{a4paper, textheight=20.5cm, top=2.5cm, bottom=2cm, footskip=1.5cm, left=2.0cm, right=2.0cm}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\begin{document}
+\title{Group Project Report\\IoT-based Virtual Health Determination}
+\author{\footnotesize{蔡佳軒\;陳彥瑾\;黃柏淞\;陳威儒\;廖柏竣}}
+\maketitle
+\thispagestyle{empty}
+\vspace{1cm}
+\newpage
+
+\setcounter{page}{1}
+
+\section*{Shiny 使用手冊與操作說明}
+
+本專案設計一個互動式的 Shiny 使用介面，搭配機器學習與深度學習模型，提供使用者簡易的震動訊號健康預測平台。以下說明使用方式與注意事項。
+
+\subsection*{1. 檔案格式與上傳}
+
+上傳之檔案需為純文字檔（.txt），內容為三欄數值資料，分別代表 X、Y、Z 軸的震動訊號，可選擇含有標題列或空一列略過。
+
+\vspace{0.5em}
+範例檔案內容如下：
+\begin{verbatim}
+0.0023  -0.0011  0.0005
+0.0031  -0.0009  0.0004
+0.0018  -0.0012  0.0006
+\end{verbatim}
+
+\subsection*{2. Shiny 預測流程}
+
+\begin{itemize}
+  \item 開啟 Shiny 頁面後，點選「學習方法」分頁。
+  \item 選擇預測模型：CNN 或 Random Forest。
+  \item 上傳測試檔案（例如：\texttt{test\_Xa\_sample.txt}）。
+  \item 選擇資料來源位置（Xa、Xb、Ya、Yb）。
+  \item 若使用 CNN 模型，請額外選擇任務類型（連續型或離散型預測）。
+  \item 點選「開始預測」後，系統將自動顯示下列結果：
+  \begin{itemize}
+    \item 資料歸屬位置與所使用模型類型
+    \item 預測健康結果（健康 / 不健康 / 注意），並依機率加以顏色標示
+    \item 預測負載數值及所對應之分類（是否屬正常負荷）
+  \end{itemize}
+\end{itemize}
+
+\subsection*{3. 系統回饋與錯誤處理}
+
+\begin{itemize}
+  \item 若上傳之檔案資料列過短（如低於 5000 列），系統將自動濾除並提醒。
+  \item 若欄位數非 3（如僅有 1 欄或超過 3 欄），系統將提示格式錯誤。
+  \item 若檔案與選擇之資料來源（如 Xa 資料選 Yb 類別）不符，可能造成預測偏誤。
+\end{itemize}
+
+\subsection*{4. GitHub 使用說明}
+
+若欲自行執行本系統，請至 GitHub 下載：
+
+\begin{itemize}
+  \item 專案主程式位於 \texttt{shiny\_bda} 專案資料夾中。
+  \item 請務必同時下載相依的模型檔（如：\texttt{rf\_clf.pkl}, \texttt{*.pth}, \texttt{*.pkl}）並放置於對應資料夾內，否則預測功能將無法運作。
+  \item 使用方式為於 RStudio 中執行 \texttt{runApp()}。
+\end{itemize}
+
+\subsection*{5. 使用介面與貢獻摘要}
+
+為提升使用者體驗，本專案特別設計一套清新簡潔、友善操作的使用者介面，整合前端 Shiny 與後端 Python 模型串接，讓非技術使用者也能輕鬆上手。
+
+\textbf{專案貢獻簡述}：
+
+\begin{quote}
+本系統整合 Python 與 R 語言，開發了一個即時互動的預測介面。透過 Shiny 可視化平台，使用者只需上傳單筆震動資料，即可快速獲得設備健康狀態與負載預測。前端使用 R 語言設計使用者介面，後端由 Python 模型（隨機森林與 CNN）進行分析運算，並透過 JSON 溝通整合。系統支援自訂模型選擇、任務切換與即時錯誤提示，具備高度實用性與擴充彈性。
+\end{quote}
+
+\end{document}
