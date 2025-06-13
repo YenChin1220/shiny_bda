@@ -1,0 +1,98 @@
+body {
+  background-color: #f9f7f3;
+  font-family: "Quicksand", "Noto Sans", sans-serif;
+}
+.custom-container {
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 25px;
+  background-color: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e5e5;
+}
+
+.custom-title {
+  text-align: center;
+  font-size: 26px;
+  color: #556b2f;
+  margin-bottom: 25px;
+  font-weight: 500;
+}
+
+.btn-primary {
+  background-color: #7fb77e;
+  border-color: #7fb77e;
+}
+
+.btn-primary:hover {
+  background-color: #6aa96b;
+  border-color: #6aa96b;
+}
+
+input[type="file"] {
+  background-color: #f4f4f4;
+  border-radius: 8px;
+}
+
+input[type="radio"]:checked {
+  accent-color: #556b2f;
+}
+
+.shiny-file-input-progress {
+  background-color: #7fb77e ;
+  color: white ;
+  font-weight: 200;
+  border: none;
+  border-radius: 2px;
+}
+
+.progress-bar {
+  background-color: #556b2f !important;
+  box-shadow: none !important;
+}
+
+select {
+  border-color: #cccccc;
+  border-radius: 6px;
+  padding: 6px;
+  font-family: "Quicksand", "Noto Sans", sans-serif;
+}
+
+select:focus {
+  border-color: #7fb77e;
+  box-shadow: 0 0 4px #b7deb7;
+  outline: none; 
+}
+
+.selectize-control.single .selectize-input {
+  background-color: #fdfdfd;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  padding: 6px;
+  font-family: "Quicksand", "Noto Sans", sans-serif;
+  font-size: 15px;
+}
+
+.selectize-dropdown-content .option:hover {
+  background-color: #a3d799 !important; 
+  color: white !important;
+}
+
+.selectize-dropdown-content .option.selected {
+  background-color: #7fb77e !important; 
+  color: white !important;
+}
+
+.selectize-dropdown-content .option.active:not(.selected):not(:hover) {
+  background-color: transparent !important;
+  color: inherit !important;
+}
+#predict {
+  background-color: #7fb77e !important;  /* 想要的預設顏色 */
+  color: white !important;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  font-size: 14px;
+}
